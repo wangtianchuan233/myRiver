@@ -31,4 +31,11 @@ public class SortUtils {
             quickSort(array,left,j);
         }
     }
+    public static <T extends Comparable> void selectSort(T[] array){
+
+    }
+
+    public static <T extends  Comparable> void guluSort(T[] array){
+
+    }
 }

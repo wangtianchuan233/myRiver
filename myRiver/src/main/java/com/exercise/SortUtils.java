@@ -52,7 +52,20 @@ public class SortUtils {
      * @param <T>
      */
     public static <T extends Comparable> void selectSort(T[] array) {
-
+		
+		for(int i = 0; i < array.length; i++ ){
+			int minIndex = i;
+			for(int j = array.length - 1; j > 0; j--){
+				if(array[j].compareTo(array[minIndex]) < 0){
+					minIndex = j;
+				}
+			}
+			if(i != minIndex){
+				T temp = array[minIndex];
+				array[minIndex] = array[i];
+				array[i] = temp;
+			}
+		}
     }
 
     /**
@@ -61,7 +74,7 @@ public class SortUtils {
      * @param <T>
      */
     public static <T extends Comparable> void bubbleSort(T[] array){
-
+		
     }
 
 }

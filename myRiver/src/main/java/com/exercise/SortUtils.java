@@ -47,15 +47,13 @@ public class SortUtils {
     }
 
     /**
-     * 选择排序
-     * @param array
-     * @param <T>
+     * 选择排序:
      */
     public static <T extends Comparable> void selectSort(T[] array) {
-		
+
 		for(int i = 0; i < array.length; i++ ){
 			int minIndex = i;
-			for(int j = array.length - 1; j > 0; j--){
+			for(int j = i; j < array.length; j++){
 				if(array[j].compareTo(array[minIndex]) < 0){
 					minIndex = j;
 				}
@@ -69,12 +67,18 @@ public class SortUtils {
     }
 
     /**
-     * 冒泡排序
-     * @param array
-     * @param <T>
+     * 冒泡排序:
      */
     public static <T extends Comparable> void bubbleSort(T[] array){
-		
+        for(int i = 0; i < array.length; i++ ){
+            for(int j = i; j < array.length; j++){
+                if(array[i].compareTo(array[j]) > 0){
+                    T temp = array[j];
+                    array[j] = array[i];
+                    array[i] = temp;
+                }
+            }
+        }
     }
 
 }

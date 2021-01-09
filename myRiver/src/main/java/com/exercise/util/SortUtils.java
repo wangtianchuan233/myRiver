@@ -1,4 +1,4 @@
-package com.exercise;
+package com.exercise.util;
 
 /**
  * 村口儿王富贵

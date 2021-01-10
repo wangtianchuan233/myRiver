@@ -7,14 +7,12 @@ package com.exercise.util;
  */
 public class MyTreeSet <T extends Comparable>{
     Node<T> node = new Node<T>();
-
     /**
      * 添加元素
      */
     public boolean add(T e){
         return node.add(e);
     }
-
     /**
      * TODO 判断元素是否存在
      */

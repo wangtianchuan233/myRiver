@@ -2,6 +2,10 @@ package exercise.util;
 
 /**
  * @author wangtianchuan
+ *
+ * 来源：力扣（LeetCode）
+ * 链接：https://leetcode-cn.com/problems/decrypt-string-from-alphabet-to-integer-mapping
+ * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class TreeNode {
     public int val;
@@ -19,15 +23,5 @@ public class TreeNode {
         this.val = val;
         this.left = left;
         this.right = right;
-    }
-
-    private void printNode(TreeNode node){
-        if (node.left != null){
-            printNode(node.left);
-        }
-        System.out.print(node.val + ",");
-        if (node.right != null){
-            printNode(node.right);
-        }
     }
 }

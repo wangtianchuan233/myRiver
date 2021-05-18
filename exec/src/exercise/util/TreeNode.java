@@ -24,4 +24,19 @@ public class TreeNode {
         this.left = left;
         this.right = right;
     }
+
+    public TreeNode(Integer[] array){
+
+    }
+
+    public int height(int len){
+        int height = 0;
+        int rowSize = 1;
+        while (len >= rowSize){
+            height++;
+            len -= rowSize;
+            rowSize = rowSize << 1;
+        }
+        return height;
+    }
 }

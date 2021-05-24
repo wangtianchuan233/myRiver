@@ -36,7 +36,7 @@ import java.util.Arrays;
  */
 public class Title942 {
     public static void main(String[] args) {
-        String s ="DDI";
+        String s ="IDID";
         System.out.println(Arrays.toString(new Title942().diStringMatch2(s)));
     }
 
@@ -101,13 +101,14 @@ public class Title942 {
     public int[] diStringMatch2(String s) {
         int[] res = new int[s.length() + 1];
         int min = 0, max = s.length();
-        for (int i = 0; i < res.length; i++){
+        for (int i = 0; i < s.length(); i++){
             if ('I' == s.charAt(i)){
                 res[i] = min++;
             } else if ('D' == s.charAt(i)){
                 res[i] = max--;
             }
         }
+        res[s.length()] = min;
         return res;
     }
 }

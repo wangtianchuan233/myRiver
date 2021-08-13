@@ -7,7 +7,7 @@ package util;
  */
 public class Radar {
 
-    public static int binaryFind(int[] arr, int target){
+    public static int binarySearch(int[] arr, int target){
         return -1;
     }
 }

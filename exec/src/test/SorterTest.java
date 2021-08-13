@@ -1,5 +1,7 @@
 package test;
 
+import util.Sorter;
+
 import java.util.Arrays;
 
 /**
@@ -7,7 +9,7 @@ import java.util.Arrays;
  */
 public class SorterTest {
     public static void main(String[] args) {
-/*        int[] arr0 = {2,4,6,3,2};
+        int[] arr0 = {2,4,6,3,2};
         sort(arr0);
         System.out.println(Arrays.toString(arr0));
         int[] arr1 = {1};
@@ -15,7 +17,7 @@ public class SorterTest {
         System.out.println(Arrays.toString(arr1));
         int[] arr2 = {};
         sort(arr2);
-        System.out.println(Arrays.toString(arr2));*/
+        System.out.println(Arrays.toString(arr2));
         int[] arr3 = {6,5,3,2,1,1,1,1};
         sort(arr3);
         System.out.println(Arrays.toString(arr3));
@@ -27,5 +29,6 @@ public class SorterTest {
 //        Sorter.quickSort(arr);
 //        Sorter.mergeSort(arr);
 //        Sorter.heapSort(arr);
+        Sorter.shellSort(arr);
     }
 }

@@ -54,7 +54,39 @@ public class Sorter {
      * @param arr int 数组
      */
     public static void shellSort(int[] arr){
-
+        for(int step = arr.length >> 1; step > 0; step = step >> 1) {
+            /*
+             * [3,2,8,4,12,2,4,6,7,4]
+             * step = 5
+             *  对  3          2
+             *  对  | 2        | 4
+             *  对  | | 8      | | 6
+             *  对  | | | 4    | | | 7
+             *  对  | | | | 12 | | | | 4
+             *      | | | | |  | | | | |
+             * 结果 2 2 6 4 4  3 4 8 7 12
+             *
+             * step = 2
+             *  对 2   6   4   4   7     排序
+             *  对 | 2 | 4 | 3 | 8 | 12  排序
+             *    | | | | | | | | | |
+             *   2 2  4 3 4 4 6 8 7 12
+             *
+             * step = 1
+             * 直接排序
+             *  2 2 3 4 4 4 6 7 8 12
+             *
+             */
+            for (int i = step; i < arr.length; i++) {
+                int temp = arr[i];
+                int j = i;
+                while((j - step) > -1 && arr[j - step] > temp){
+                    arr[j] = arr[j - step];
+                    j -= step;
+                }
+                arr[j] = temp;
+            }
+        }
     }
 
     /**
@@ -236,11 +268,11 @@ public class Sorter {
             }
         }
         /*
-         把基准数字放到一个合适的位置, 以保证: 经过本轮排序以后,
-         基准数字左边的数全都小于等于它;
-         基准数字右边的数全都大于等于它;
-         为了保证这里拿到准确的 i 的值, 上面的 while 循环,
-         必须先确定 j 的值, 再确定 i 的值;
+         * 把基准数字放到一个合适的位置, 以保证: 经过本轮排序以后,
+         * 基准数字左边的数全都小于等于它;
+         * 基准数字右边的数全都大于等于它;
+         * 为了保证这里拿到准确的 i 的值, 上面的 while 循环,
+         * 必须先确定 j 的值, 再确定 i 的值;
          */
         swap(arr, l, i);
         quickSort(arr, l, i - 1);

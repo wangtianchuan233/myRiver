@@ -1,5 +1,7 @@
 package util;
 
+import java.util.Arrays;
+
 /**
  * @author wangtianchuan 2021/8/10
  * 
@@ -40,12 +42,38 @@ public class Sorter {
     }
 
     /**
-     * 基数排序
+     * 基数排序, 目前仅支持非负数的排序
      *
      * @param arr int 数组
      */
     public static void radixSort(int[] arr) {
-
+        if (arr.length < 2){
+            return;
+        }
+        int[] count = new int[10];
+        int[] temp = new int[arr.length];
+        int max = arr[0];
+        for(int n : arr){
+            if (n > max){
+                max = n;
+            }
+        }
+        for(int i = 1; i < max; i *= 10){
+            Arrays.fill(count, 0);
+            for (int n : arr) {
+                count[n / i % 10]++;
+            }
+            for(int k = 1; k < count.length; k++){
+                count[k] += count[k - 1];
+            }
+            for (int n : arr) {
+                int index = --count[n / i % 10];
+                temp[index] = n;
+            }
+        }
+        for(int k = 0; k < arr.length; k++){
+            arr[k] = temp[k];
+        }
     }
 
     /**

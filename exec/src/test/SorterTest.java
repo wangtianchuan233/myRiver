@@ -29,6 +29,7 @@ public class SorterTest {
 //        Sorter.quickSort(arr);
 //        Sorter.mergeSort(arr);
 //        Sorter.heapSort(arr);
-        Sorter.shellSort(arr);
+//        Sorter.shellSort(arr);
+        Sorter.radixSort(arr);
     }
 }

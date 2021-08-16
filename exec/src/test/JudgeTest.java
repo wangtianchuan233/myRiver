@@ -7,16 +7,13 @@ import util.Judge;
  */
 public class JudgeTest {
     public static void main(String[] args) {
-        int count = 0, i = 1;
-        while(count < 26){
-            if (Judge.isPrime(++i)){
-                System.out.print(i);
-                count++;
-                System.out.print(",");
-            }
-        }
+        palindromeTest();
     }
-    public static String multiply(String num1, String num2) {
-        return null;
+
+    private static void palindromeTest() {
+        int[] arr = {10};
+        for (int i : arr) {
+            System.out.println(Judge.isPalindrome(i));
+        }
     }
 }

@@ -25,4 +25,36 @@ public class Judge {
         }
         return true;
     }
+
+    /**
+     * 判断 n 是不是回文数, 忽略符号
+     *
+     * @param n 整数 n, int 类型
+     * @return true, 如果 n 是回文数, 否则返回 false
+     */
+    public static boolean isPalindromeIgnoreSign(int n){
+        return isPalindrome(Math.abs(n));
+    }
+
+    /**
+     * 判断 n 是不是回文数
+     *
+     * @param n 整数 n, int 类型
+     * @return true, 如果 n 是回文数, 否则返回 false
+     */
+    public static boolean isPalindrome(int n){
+        if (n < 0 || n % 10 == 0){
+            return false;
+        }
+        if (n < 10){
+            return true;
+        }
+        int a = 0;
+        while(n > a){
+            int t = n % 10;
+            a = a * 10 + t;
+            n /= 10;
+        }
+        return n == a || n == a / 10;
+    }
 }

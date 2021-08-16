@@ -36,7 +36,7 @@ public class Sorter {
             swap(arr, 0, i);
             if (i > 0) {
                 // 摘除堆尾元素, 再次构建大顶堆
-                adjustHeap(arr, 0, i - 1);
+                adjustHeap(arr, 0, i);
             }
         }
     }
@@ -66,13 +66,13 @@ public class Sorter {
             for(int k = 1; k < count.length; k++){
                 count[k] += count[k - 1];
             }
-            for (int n : arr) {
-                int index = --count[n / i % 10];
-                temp[index] = n;
+            for(int k = arr.length - 1; k >= 0; k--){
+                int index = --count[arr[k] / i % 10];
+                temp[index] = arr[k];
             }
-        }
-        for(int k = 0; k < arr.length; k++){
-            arr[k] = temp[k];
+            for(int k = 0; k < arr.length; k++){
+                arr[k] = temp[k];
+            }
         }
     }
 
@@ -319,11 +319,38 @@ public class Sorter {
             if ((k + 1) < n && arr[k] < arr[k + 1]){
                 k++;
             }
-            if (arr[k] > arr[i]){
+            if (arr[k] > temp){
                 arr[i] = arr[k];
                 i = k;
             }
         }
         arr[i] = temp;
+        printArrayAsTree(arr);
+    }
+
+    private static void printArrayAsTree(int[] arr) {
+        String blankUnit = "  ";
+        int row = 0;
+        while(1 << row < arr.length){
+            row++;
+        }
+        int blankLen = 1;
+        for(int i = 1; i < row; i++){
+            blankLen = blankLen << 1;
+            blankLen += 1;
+        }
+        for(int i = 0; i <= row; i++){
+            for(int n = 0; n < blankLen / 2; n++) {
+                System.out.print(blankUnit);
+            }
+            for(int j = (1 << i) - 1; j < arr.length && j < (1 << i + 1) - 1; j++){
+                System.out.print(arr[j]);
+                for(int n = 0; n < blankLen; n++) {
+                    System.out.print(blankUnit);
+                }
+            }
+            blankLen = (blankLen - 1) >> 1;
+            System.out.println();
+        }
     }
 }

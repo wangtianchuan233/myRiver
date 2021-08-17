@@ -15,7 +15,11 @@ public class Radar {
      * @return index of target in arr, -1 if target doesn't exist in the array
      */
     public static int binarySearch(int[] arr, int target){
-        int l = 0, r = arr.length - 1, mid;
+        return binarySearch(arr, 0, arr.length - 1, target);
+    }
+
+    public static int binarySearch(int[] arr, int rangeFrom, int rangeTo, int target){
+        int l = rangeFrom, r = rangeTo, mid;
         while(l < r){
             mid = (l + r) / 2;
             if (arr[mid] == target){
@@ -29,9 +33,10 @@ public class Radar {
         if (arr[l] != target) {
             return -1;
         }
-        while(l > 0 && arr[l - 1] == target){
+        while(l > rangeFrom && arr[l - 1] == target){
             l--;
         }
         return l;
     }
+
 }

@@ -1,4 +1,4 @@
-package test;
+package test.util;
 
 import util.Radar;
 import util.Sorter;

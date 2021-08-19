@@ -7,6 +7,13 @@ public class Printer {
 
     private Printer(){}
 
+    public static void horizontalLine(){
+        horizontalLine(64);
+    }
+    public static void horizontalLine(int len){
+        System.out.println("-".repeat(len));
+    }
+
     public static <T extends Object> void printArrayAsMatrix(T[][] arr){
         for (T[] row : arr) {
             for (T col : row) {
@@ -17,7 +24,7 @@ public class Printer {
         }
     }
 
-    public static  void printArrayAsMatrix(int[][] arr){
+    public static void printArrayAsMatrix(int[][] arr){
         for (int[] row : arr) {
             for (int col : row) {
                 System.out.print(col);
